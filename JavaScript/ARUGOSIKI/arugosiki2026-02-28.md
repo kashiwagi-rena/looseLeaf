@@ -25,3 +25,31 @@ function Main(input) {
 }
 
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+
+[所持金](https://algo-method.com/tasks/e25200e9c392ccef)
+
+function Main(input) {
+  const str = input.trim().split("\n");
+
+  const [n, K] = str[0].trim().split(" ");
+
+  let N = Number(n);
+
+  for (let i = 1; i <= K; i++) {
+    const [C, A] = str[i].trim().split(" ");
+    let zeroCount = 0;
+    if (C === "1") {
+        N += Number(A)
+    } else {
+        N -= Number(A)
+    }
+    if (zeroCount === 0 && N < 0){
+        return console.log(i - 1);
+
+    }
+  }
+  console.log(N)
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+
