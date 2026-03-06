@@ -37,3 +37,17 @@ function Main(input) {
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 ```
 
+[カウントダウン](https://algo-method.com/tasks/b605dcd9e895aad2)
+
+```
+function Main(input) {
+  for (let i = 9; i >= 0 ; i--) {
+    console.log(i + 1)
+  }
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+
+```
+
+[逆から読む](https://algo-method.com/tasks/7968b5c6e82fab73)
