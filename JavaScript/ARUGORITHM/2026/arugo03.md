@@ -64,4 +64,78 @@ function Main(input) {
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 ```
 
+[エラトステネスの篩](https://algo-method.com/descriptions/64)
 
+## 行った理由
+
+素数計算のアルゴリズム書いたことあった
+この書き方書いたことなかった
+
+### 点数と合否
+85/100
+合格
+
+自分のコード
+```
+function Eratosthenes(number) {
+    const isprime = new Array(number + 1);
+    const newIsprime = isprime.fill(true);
+    newIsprime[0] = false;
+    newIsprime[1] = false;
+
+    for (let i = 2; i <= number; i++) {
+        if (!newIsprime[i]) {
+            continue;
+        }
+
+        let q = i * 2
+
+        while (q <= number) {
+            newIsprime[q] = false;
+            q += i
+        }
+    }
+    return newIsprime;
+}
+
+console.log(Eratosthenes(50));
+```
+
+
+
+AI添削後
+```
+function Eratosthenes(number) {
+    // numberの桁確認
+    if (number > 10000000) {
+        throw new Error("numberが大きすぎます")
+    }
+
+    // 変数の冗長さ (-5点) 変数を分ける必要がない
+    // const isprime = new Array(number + 1);
+    // const newIsprime = isprime.fill(true);
+
+    const isprime = new Array(number + 1).fill(true);
+
+    newIsprime[0] = false;
+    newIsprime[1] = false;
+
+    for (let i = 2; i <= number; i++) {
+        if (!newIsprime[i]) {
+            continue;
+        }
+
+        // `q`の初期値が非効率 (-10点)
+        // let q = i * 2　// i = 5 のとき　q = 10 から始まる
+        let q = i * i; // i = 5 のとき　q = 25から始まる(それ以前は処理済みのため 10は2の倍数なのでそこでfalseになっている)
+
+        while (q <= number) {
+            newIsprime[q] = false;
+            q += i
+        }
+    }
+    return newIsprime;
+}
+
+console.log(Eratosthenes(50));
+```
