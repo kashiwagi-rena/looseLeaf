@@ -139,3 +139,20 @@ function Eratosthenes(number) {
 
 console.log(Eratosthenes(50));
 ```
+
+[回文かどうか](https://algo-method.com/tasks/227)
+
+```
+function Main(input) {
+    const word = input.trim().split("");
+
+    if (word.join("") === word.reverse().join("")) {
+        console.log("Yes");
+    } else {
+        console.log("No");
+    }
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+
+```
