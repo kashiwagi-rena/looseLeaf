@@ -156,3 +156,22 @@ function Main(input) {
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 ```
+
+[カードの並べ替え（1）](https://algo-method.com/tasks/9d11ed34c8156caa)
+```
+function Main(input) {
+    const word = input.trim().split(" ");
+
+    const count = word[0];
+    const arr = []
+    for (let i = 0; i <= count - 1; i++) {
+        arr[i] = i
+    }
+    const splice = arr.splice(word[1], word[2] - (word[1] - 1))
+
+    console.log(...splice,...arr);
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+
+```
