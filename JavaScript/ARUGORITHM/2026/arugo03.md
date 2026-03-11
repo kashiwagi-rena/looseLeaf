@@ -175,3 +175,19 @@ function Main(input) {
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 ```
+
+[カードの並べ替え（2）](https://algo-method.com/tasks/59b21a013d03f7f6)
+```
+
+```
+
+[できるだけ買う](https://algo-method.com/tasks/75444665259feb4b)
+```
+function Main(input) {
+    const word = input.trim().split(" ");
+    const num = word[0] / word[1]
+    console.log(Math.floor(num));
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+```
