@@ -191,3 +191,14 @@ function Main(input) {
 
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 ```
+[何個あまるか](https://algo-method.com/tasks/f4403edd28d0b173)
+```
+function Main(input) {
+    const word = input.trim().split(" ");
+    const num = word[0] % word[1]
+    console.log(Math.floor(num));
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+
+```
