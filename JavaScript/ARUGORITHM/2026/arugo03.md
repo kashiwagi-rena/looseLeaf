@@ -179,6 +179,7 @@ Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 [カードの並べ替え（2）](https://algo-method.com/tasks/59b21a013d03f7f6)
 ```
 
+
 ```
 
 [できるだけ買う](https://algo-method.com/tasks/75444665259feb4b)
@@ -202,3 +203,20 @@ function Main(input) {
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 ```
+
+[奇数と偶数](https://algo-method.com/tasks/d0e7ccc525dec3cd)
+```
+function Main(input) {
+    const word = input.trim();
+    const num = word % 2;
+    if (num === 0) {
+        console.log("even");
+    } else {
+        console.log("odd");
+    }
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+
+```
+
