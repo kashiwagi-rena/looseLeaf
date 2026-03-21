@@ -234,3 +234,42 @@ function countdown(number) {
 }
 ```
 
+再帰　p138
+採点：85点 / 100点
+1. 文字列の配列を受け取り全文字列の総文字数を返す関数を再帰を用いて書きなさい。
+```
+function Main(input) {
+    const arr = JSON.parse(input.trim());
+
+    const countAll = (inputC = arr, index = 0, number = 0) => {
+        if (inputC.length !== index) {
+            const countA = inputC[index].length;
+            return countAll(inputC, index + 1, countA + number)
+        } else {
+            return number
+        }
+    }
+    const result = countAll();
+    console.log(result);
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+```
+
+リファクタリング
+```
+function Main(input) {
+    const arr =JSON.parse(input.trim());
+
+    const countAll =(arr, index = 0, total = 0) => {
+        if (index !== arr.length) {
+            return countAll(arr, index + 1, total + arr[index].length);
+        } else {
+            return total;
+        }
+    }
+    console.log(countAll(arr));
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+```
