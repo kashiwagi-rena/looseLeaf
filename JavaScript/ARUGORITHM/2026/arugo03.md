@@ -178,8 +178,17 @@ Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 [カードの並べ替え（2）](https://algo-method.com/tasks/59b21a013d03f7f6)
 ```
+function Main(input) {
+    const number =JSON.parse(input.trim());
+    const arr = Array.from({ length: number * 2}, (_, i) => i);
+    for (let i = number; i > 0; i--) {
+        console.log(arr.shift());
+        console.log(arr.pop());
+    }
 
+}
 
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 ```
 
 [できるだけ買う](https://algo-method.com/tasks/75444665259feb4b)
