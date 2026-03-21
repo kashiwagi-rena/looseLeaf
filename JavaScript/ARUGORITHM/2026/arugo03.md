@@ -220,3 +220,17 @@ Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 ```
 
+[データ構造とアルゴリズム]
+再帰　p123
+```
+function countdown(number) {
+    console.log(number);
+
+    if (number === 0) {
+        return;
+    } else {
+        countdown(number - 1); //ここで自分自身を呼んでいる
+    }
+}
+```
+
