@@ -229,6 +229,21 @@ Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 
 ```
 
+[階段図形](https://algo-method.com/tasks/fc69a3d0589bcc94)
+```
+function Main() {
+    for (let i = 1; i <= 9; i++) {
+        const arr = [];
+        for (let j = 1; j <= i; j++) {
+            arr.push(i)
+        }
+        console.log(arr.join(""))
+    }
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+```
+
 [データ構造とアルゴリズム]
 再帰　p123
 ```
@@ -282,3 +297,79 @@ function Main(input) {
 
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 ```
+
+再帰　p138
+採点：65点 / 100点
+再帰の鉄則：再帰関数は引数だけで状態を管理する！外の変数に触らない！
+2. 数の配列を受け取って、偶数だけを含む新たな配列を返す関数を再帰を用いて書きなさい。
+```
+function Main(input) {
+    const arr =JSON.parse(input.trim());
+    let total = []; // ← 関数の外にある・2回呼ぶと壊れる(console.log(countAll(arr));が同じ階層にあるため)・**副作用**というらしい
+
+    const countAll =(arr, index = 0) => {
+        if (arr.length !== index) {
+            if (arr[index] % 2 === 0) {
+                // ❌ total.push()の戻り値は「配列の新しい長さ（数値）」
+                return countAll(arr, index + 1, total.push(arr[index]));
+                //                               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+                //                               これは [2,4] ではなく 2 (数値) が渡される！
+            } else {
+                return countAll(arr, index + 1, total);
+            }
+        } else {
+            return total
+        }
+
+    }
+    console.log(countAll(arr));
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+```
+
+リファクタリング
+```
+function Main(input) {
+    const arr =JSON.parse(input.trim());
+    let total = [];
+
+    const countAll =(arr, index = 0, total = []) => {
+        if (index !== arr.length) {
+            if (arr[index] % 2 === 0) {
+                // スプレッド構文で新しい配列を作る（元の配列を壊さない）
+                return countAll(arr, index + 1, [...total, arr[index]]);
+            } else {
+                return countAll(arr, index + 1, total);
+            }
+        } else {
+            return total
+        }
+
+    }
+    console.log(countAll(arr));
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+```
+副作用：関数の外の状態を変えること・純粋な関数でなくなる・デバックしにくい(どこで値が変わったのかわからない)・再利用しやすい
+
+純粋関数と副作用の比較
+```
+// ❌ 副作用あり（純粋でない関数）
+let total = [];
+const addEven = (arr) => {
+    total.push(arr); // 外を変える
+};
+
+// ✅ 副作用なし（純粋関数）
+const addEven = (arr, total = []) => {
+    return [...total, arr]; // 新しい値を返すだけ
+};
+```
+**まとめ**
+関数は「引数を受け取り、戻り値を返す」だけにする！
+外の変数に触るのは極力避ける！
+
+> この考え方を**「純粋関数（Pure Function）**」と言います。副作用をなくすことで、バグが減り、コードが読みやすくなります
+> push() や外部変数への代入を見かけたら、「副作用では？」と疑う癖をつけましょう！
