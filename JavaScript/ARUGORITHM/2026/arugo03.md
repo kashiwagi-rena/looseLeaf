@@ -244,6 +244,17 @@ function Main() {
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 ```
 
+[九九の一覧](https://algo-method.com/tasks/f6c9d310f48b1cbc)
+```
+for (let i = 1; i <= 9; i++) {
+    for (let l = 1; l <= 9; l++) {
+        const answer = i * l
+        console.log(`${i} * ${l} = ${answer}`);
+    }
+}
+```
+[]
+
 [データ構造とアルゴリズム]
 再帰　p123
 ```
@@ -298,7 +309,7 @@ function Main(input) {
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 ```
 
-再帰　p138
+再帰　p139
 採点：65点 / 100点
 再帰の鉄則：再帰関数は引数だけで状態を管理する！外の変数に触らない！
 2. 数の配列を受け取って、偶数だけを含む新たな配列を返す関数を再帰を用いて書きなさい。
@@ -373,3 +384,7 @@ const addEven = (arr, total = []) => {
 
 > この考え方を**「純粋関数（Pure Function）**」と言います。副作用をなくすことで、バグが減り、コードが読みやすくなります
 > push() や外部変数への代入を見かけたら、「副作用では？」と疑う癖をつけましょう！
+
+再帰　p139
+採点：65点 / 100点
+3. 三角数という数列がある。そのパターンは、1, 3, 6, 10, 15, 21で始まり、N番目の数が直前の数にNを足したものである。
