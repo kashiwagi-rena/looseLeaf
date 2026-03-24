@@ -253,7 +253,18 @@ for (let i = 1; i <= 9; i++) {
     }
 }
 ```
-[]
+[九九表](https://algo-method.com/tasks/26ece8190860645f)
+```
+for (let i = 1; i <= 9; i++) {
+    for (let l = 1; l <= 9; l++) {
+        const answer = i * l
+        console.log(answer);
+    }
+    console.log("\n")
+}
+```
+
+
 
 [データ構造とアルゴリズム]
 再帰　p123
