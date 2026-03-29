@@ -264,6 +264,17 @@ for (let i = 1; i <= 9; i++) {
 }
 ```
 
+[無駄のない九九](https://algo-method.com/tasks/f8050725813f22a5)
+
+```
+for (let i = 1; i <= 9; i++) {
+    for (let l = 1; l <= 9; l++) {
+        const answer = i * l
+        console.log(answer);
+    }
+    console.log("\n")
+}
+```
 
 
 [データ構造とアルゴリズム]
