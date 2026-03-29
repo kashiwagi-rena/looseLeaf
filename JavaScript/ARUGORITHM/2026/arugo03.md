@@ -276,6 +276,23 @@ for (let i = 1; i <= 9; i++) {
 }
 ```
 
+[文字探し（1）](https://algo-method.com/tasks/cc45da0c69d04893)
+```
+function Main(input) {
+  const arr = input.trim().split("\n");
+  const str = arr[1].trim().split("");
+
+  for (let i = 0; i <= arr[0]; i++) {
+    if (str[i] === "a") {
+        console.log(i)
+    }
+  }
+
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+```
+
 
 [データ構造とアルゴリズム]
 再帰　p123
