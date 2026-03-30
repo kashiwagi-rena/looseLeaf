@@ -293,6 +293,27 @@ function Main(input) {
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 ```
 
+[文字探し（2）](https://algo-method.com/tasks/aa9ca9f4a46b6204)
+```
+function Main(input) {
+  const arr = input.trim().split("\n");
+  const str = arr[1].trim().split("");
+  let booli = false;
+
+  for (let i = 0; i <= arr[0]; i++) {
+    if (booli === false) {
+        if (str[i] === "a") {
+            console.log(i)
+            booli = true;
+        }
+    }
+  }
+
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+```
+
 
 [データ構造とアルゴリズム]
 再帰　p123
