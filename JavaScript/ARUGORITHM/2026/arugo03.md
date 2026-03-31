@@ -313,6 +313,24 @@ function Main(input) {
 
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 ```
+[文字探し(3)](https://algo-method.com/tasks/be45aed999990393)
+```
+function Main(input) {
+  const arr = input.trim().split("\n");
+  const str = arr[1].trim().split("");
+  let count = 0;
+
+  for (let i = 0; i <= arr[0]; i++) {
+        if (str[i] === "a") {
+            count += 1;
+        }
+  }
+        console.log(count)
+
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+```
 
 
 [データ構造とアルゴリズム]
