@@ -57,3 +57,17 @@ function Main(input) {
 
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 ```
+
+[文字列の切り出し](https://algo-method.com/tasks/19cfda6206f714c4)
+```
+function Main(input) {
+  const arr = input.trim().split("\n");
+  const [N, L, R] = arr[0].trim().split(" ");
+  const strS = String(arr[1]);
+  console.log(strS.substring(L, (Number(R) + 1)));
+
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+```
+
