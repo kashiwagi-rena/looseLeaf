@@ -71,3 +71,14 @@ function Main(input) {
 Main(require("fs").readFileSync("/dev/stdin", "utf8"));
 ```
 
+[文字列検索](https://algo-method.com/tasks/229)
+```
+function Main(input) {
+  const [S, T] = input.trim().split("\n");
+
+  console.log(S.includes(T) ? "Yes" : "No");
+
+}
+
+Main(require("fs").readFileSync("/dev/stdin", "utf8"));
+```
